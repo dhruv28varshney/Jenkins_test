@@ -16,7 +16,7 @@ static int is_open = 0;         /* Is device open? :Used to prevent multiple acc
 static char msg[BUF_LEN];       /* The msg the device will give when asked */
 int num_bytes = BUF_LEN;
 
-size_t my_read(struct file *pfile, char __user *buffer, size_t length, loff_t *offset)
+ssize_t my_read(struct file *pfile, char __user *buffer, size_t length, loff_t *offset)
 {
         int bytes_read = 0;
         if (offset == NULL) return -EINVAL;
