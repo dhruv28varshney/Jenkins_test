@@ -5,5 +5,3 @@ sudo insmod ./char_drv_fops.ko
 echo "testing" > /dev/chardev
 cat /dev/chardev
 sudo rmmod char_drv_fops
-jenkins ALL=(ALL) NOPASSWD: ALL
-
