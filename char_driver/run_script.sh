@@ -1,5 +1,5 @@
 #!/bin/bash
-#make host
+make host
 insmod ./char_drv_fops.ko
 #mknod -m 666 /dev/chardev c 258 0
 echo "testing" > /dev/chardev
