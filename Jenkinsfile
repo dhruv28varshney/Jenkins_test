@@ -16,7 +16,7 @@ pipeline {
 			steps {
 				echo 'Testing..'
 				sudo insmod ./char_drv_fops.ko
-				echo "testing" > /dev/chardev
+				echo "testing 1 2 3" > /dev/chardev
 				cat /dev/chardev
 
 			}
