@@ -1,4 +1,5 @@
 #!/bin/bash
+make clean
 make host
 sudo insmod ./char_drv_fops.ko
 #sudo mknod -m 666 /dev/chardev c 258 0
