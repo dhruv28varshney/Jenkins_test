@@ -13,6 +13,7 @@ pipeline {
 		stage('Test') {
 			steps {
 				echo 'Testing..'
+				sh "chmod +x -R ${env.WORKSPACE}"
 				sh './run_script.sh'
 			}
 		}
