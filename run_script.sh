@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 make clean
 make host
 sudo insmod ./char_drv_fops.ko
