@@ -1,0 +1,8 @@
+MAKEFILE          : to create the .ko files
+simple_module.c   : just a module with the init and exit functions
+sample_char_drv.c : sample char driver with just prints inside the fops
+char_drv_fops.c   : char driver with fops using get_user and put_user
+char_driv_fops.c  : char driver with fops using copy_from_user and get_from_user
+char_drv_ioctl.c  : char driver with fops and ioctl implemented- to read in upper case (in ioctl example dir)
+ioctl_test.c      : user space code to set the ioctl mode b/w 0 and 1 (in ioctl example dir)
+char_driv_mmap.c  : char driver with mmap implemented (in mmap_example/driver dir)
