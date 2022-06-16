@@ -1,11 +1,11 @@
-SRC			= my_mmap_app.c
+SRC	= my_mmap_app.c
 CFLAGS	= -std=c99
-TARG		= my_mmap_app
+TARG	= my_mmap_app
 
 all: $(TARG)
 
 my_mmap_app: $(SRC)
-				gcc -Wall $(CFLAGS) -o $@ $(SRC)
+	gcc -Wall $(CFLAGS) -o $@ $(SRC)
 
 clean:
-				rm -f $(TARG)
+	rm -f $(TARG)
