@@ -6,3 +6,20 @@ char_driv_fops.c  : char driver with fops using copy_from_user and get_from_user
 char_drv_ioctl.c  : char driver with fops and ioctl implemented- to read in upper case (in ioctl example dir)
 ioctl_test.c      : user space code to set the ioctl mode b/w 0 and 1 (in ioctl example dir)
 char_driv_mmap.c  : char driver with mmap implemented (in mmap_example/driver dir)
+
+
+Steps to run->
+* Check the Makefile to see which modules need to be compiled
+* make host                                  (to compile the module and generate the .ko file)
+* sudo insmod char_drv_fops.ko               (to insert the module)
+* sudo mknod -m 666 /dev/chardev c 258 0     (to make char device entry)
+* echo "testing" > /dev/sample_char_dev      (to write to the device file; open,write,close functions are called, visible in the syslog)
+* cat /dev/sample_chardev                    (to read the device file; open,read,close functions are called, visible in the syslog)
+* sudo rm /dev/chardev                        (to remove the device file)
+* sudo rmmod sample_char_driver               (to remove the module)
+
+Useful commands:
+* lsmod | grep char (to see list of loaded modules with char in name- can use it to see if insmod worked)
+* cat /proc/devices  (to see list of loaded characted devices - find the device name at 258 major number)
+* ls -l /dev/sample_chardev (can see the device's major and minor number, can be used to see if mknod worked)
+* sudo tail -f /var/log/syslog (to see the syslog- to view the kernel alert/info prints- like those inside the init and exit functions)
