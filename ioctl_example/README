@@ -1,0 +1,19 @@
+char_drv_ioctl.c  : char driver code with ioctl implemented
+Makefile          : to generate the .ko file 
+ioctl_test.c      : user space code to test ioctl - mode=0: read from driver as it is
+                                                     mode=1: read from driver by converting lower case letters to uppercase
+                                                     
+ Steps to run->
+ make host
+ sudo insmod char_drv_ioctl.ko
+ sudo  mknod -m 666 /dev/chardev c 258 0
+ 
+ gcc ioctl_test.c -o ioctl_test.out
+./ioctl_test.out 0  (sets the ioctl mode to 0)
+echo "Testing 1 2 3" > /dev/chardev
+cat /dev/chardev
+Prints on console: Testing 1 2 3
+
+./ioctl_test.out 1  (sets the ioctl mode to 1- read is done in upper case)
+cat /dev/chardev
+Prints on console: TESTING 1 2 3
