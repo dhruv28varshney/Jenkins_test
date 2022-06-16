@@ -1,0 +1,16 @@
+driver : has the Makefile and char driver code to implement mmap 
+app    : has a Makefile and a user space code to test mmap implemented in the char driver
+
+Steps to run->
+In driver directory:
+make modules
+sudo insmod char_driv_mmap.ko
+sudo  mknod -m 666 /dev/chardev_mmap c 268 0
+
+In app directory:
+make all
+./my_mmap_app /dev/chardev_mmap
+
+Prints this on the console:
+The initial data in memory: My mmap options implement, this is file: chardev_mmap
+The modified data in memory: My mmap op## User modify! ##his is file: chardev_mmap
