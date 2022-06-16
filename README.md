@@ -1,4 +1,4 @@
-# Jenkins_test
+# Jenkins_test and Sample Character Driver
 1. Try to run a simple job on Jenkins to print "Hello World".
 2. Run a parameterized job- like give a parameter to print after Hello
 3. Run a pipeline with 3-4 stages on Jenkins to have prints at those stages.
