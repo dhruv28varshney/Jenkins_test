@@ -1,3 +1,13 @@
 This example is to use remap_pfn_range function for building the page table all at once instead of faulting for every page.
 
 Steps to run:
+make modules
+sudo insmod driver_remap3.ko
+sudo  mknod -m 666 /dev/mmptest3 c 262 0
+
+gcc test_remap.c -o test_remap
+./test_remap
+
+Exit steps:
+rm /dev/mmptest3
+sudo rmmod driver_remap3
