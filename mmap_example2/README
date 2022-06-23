@@ -8,6 +8,10 @@ sudo  mknod -m 666 /dev/mmptest3 c 262 0
 gcc test_remap.c -o test_remap
 ./test_remap
 
+Console output:
+The initial data in memory: My mmap op## User modify! ##his is file: chardev_mmap_ex
+The modified data in memory: My mmap op## User modify! ##his is file: chardev_mmap_ex
+
 Exit steps:
 rm /dev/mmptest3
 sudo rmmod driver_remap3
