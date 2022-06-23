@@ -163,7 +163,8 @@ static int mmptest_init(void)
     }
 
     sh_mem->num = 28;
-    sprintf(sh_mem->buf, "Hi Dhruv Varshney, Good to see you");
+    sprintf(sh_mem->buf, "My mmap options implement, this is file: chardev_mmap_ex");
+    //sprintf(sh_mem->buf, "Hi Dhruv Varshney, Good to see you");
 
     printk("kmalloc ok\n");
     return 0;
