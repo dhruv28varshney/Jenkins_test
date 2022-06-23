@@ -22,10 +22,8 @@ typedef struct {
 static mmmptest_ctx *sh_mem = NULL;
 #define PAGESIZE        4096
 #define SHARE_MEM_SIZE (PAGE_SIZE * 5)  
-
 #define BUF_LEN 1024                 /* Max length of the message from the device */
 static int Major = 262;              /* Major number assigned to our device driver */
-
 static int is_open = 0;              /* Is device open? :Used to prevent multiple access to device */
 static char mesg[BUF_LEN];           /* The msg the device will give when asked */
 int num_bytes = BUF_LEN;
@@ -63,7 +61,7 @@ ssize_t my_write(struct file *pfile, const char __user *buffer, size_t length, l
         return bytes_write;
 }
 
-tatic int my_open(struct inode *ip, struct file *filp)
+static int my_open(struct inode *ip, struct file *filp)
 {
         pr_info("== %s ==\n", __func__);
 
@@ -91,7 +89,7 @@ static int my_release(struct inode * ip, struct file *filp)
         return 0;
 }
 
-tatic void my_vma_open(struct vm_area_struct *vma)
+static void my_vma_open(struct vm_area_struct *vma)
 {
         pr_info("== %s ==\n", __func__);
 }
